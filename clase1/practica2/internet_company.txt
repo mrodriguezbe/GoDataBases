@@ -1,0 +1,59 @@
+1_ 
++-----------------+      +----------------------+
+|    Clientes     |      |  Planes_De_Internet  |
++-----------------+      +----------------------+
+| DNI (PK)        |      | ID_Plan (PK)         |
+| Nombre          |      | Velocidad_Megas      |
+| Apellido        |      | Precio               |
+| Fecha_Nacimiento|      | Descuento            |
+| Provincia       |      +----------------------+
+| Ciudad          |
++-----------------+
+
+2_ 
+
+a. La primary key para la tabla de clientes debería ser el campo DNI, ya que es un identificador único para cada cliente.
+
+b. La primary key para la tabla de planes de internet debería ser el campo ID_Plan, ya que es un identificador único para cada plan.
+
+c. En la tabla Clientes, se debería agregar una foreign key que haga referencia al campo ID_Plan de la tabla Planes_De_Internet. Esto indicará qué plan tiene contratado cada cliente.
+
+3_
+
+-- Crear la base de datos
+CREATE DATABASE empresa_internet;
+
+-- Usar la base de datos
+USE empresa_internet;
+
+-- Crear la tabla de clientes
+CREATE TABLE Clientes (
+    DNI INT PRIMARY KEY,
+    Nombre VARCHAR(255),
+    Apellido VARCHAR(255),
+    Fecha_Nacimiento DATE,
+    Provincia VARCHAR(255),
+    Ciudad VARCHAR(255),
+    ID_Plan INT,
+    FOREIGN KEY (ID_Plan) REFERENCES Planes_De_Internet(ID_Plan)
+);
+
+-- Crear la tabla de planes de internet
+CREATE TABLE Planes_De_Internet (
+    ID_Plan INT PRIMARY KEY,
+    Velocidad_Megas INT,
+    Precio DECIMAL(10, 2),
+    Descuento DECIMAL(5, 2)
+);
+
+-- Insertar 10 registros en la tabla de clientes
+INSERT INTO Clientes VALUES
+(1, 'Nombre1', 'Apellido1', '1990-01-01', 'Provincia1', 'Ciudad1', 1),
+(2, 'Nombre2', 'Apellido2', '1991-02-02', 'Provincia2', 'Ciudad2', 2),
+-- Agrega otros 8 registros
+
+-- Insertar 5 registros en la tabla de planes de internet
+INSERT INTO Planes_De_Internet VALUES
+(1, 100, 29.99, 0.05),
+(2, 200, 39.99, 0.1),
+-- Agrega otros 3 registros
