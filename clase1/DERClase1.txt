@@ -1,0 +1,7 @@
+Ejercicio Librería
+
+Tabla Ventas: id(pk), fecha, id_articulo, id_cliente
+
+Tabla Productos: id(pk)(fk), descripción, stock
+
+Tabla Clientes: id(pk)(fk), calle, dni, etc...
