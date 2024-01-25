@@ -1,0 +1,33 @@
+Normalizar a 3fn
+
+Originalmente teníamos 
+
+1. id_factura
+2. fecha_factura
+3. forma_pago
+4. IVA
+5. cantidad
+6. importe
+7. nombre_cliente
+8. apellido_cliente
+9. direccion_cliente
+10. descripcion articulo
+
+La PK es ID_factura. Los datos del cliente no dependen del id de la factura por lo que los paso a otra tabla
+
+CLIENTES
+id
+nombre
+apellido
+direccion
+
+FACTURAS
+id
+fecha
+forma_pago
+IVA
+cantidad
+importe
+cliente_id
+descripcion
+
